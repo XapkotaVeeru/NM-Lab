@@ -23,10 +23,11 @@ int main()
     }
     for(j=0;j<=n;j++)
     {
-        printf("%f\n",x[j]);
+        printf("\n");
+        printf("%f",x[j]);
         for(i=0;i<=n-j;i++)
         {
-            printf("%f\t",f[i][j]);
+            printf("\t%f\t",f[i][j]);
         }
     }
     return 0;
