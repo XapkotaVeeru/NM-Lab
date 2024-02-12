@@ -11,33 +11,33 @@ int main() {
 
     up:
     printf("\nEnter two initial guesses:\n");
-    scanf("%f%f", &x0, &x1);
+    scanf("%f%f", &x1, &x2);
     printf("Enter tolerable error:\n");
     scanf("%f", &e);
 
-    f0 = functionRun(x0);
     f1 = functionRun(x1);
+    f2 = functionRun(x2);
 
-    if (f0 * f1 > 0.0) {
+    if (f1 * f2 > 0.0) {
         printf("Incorrect Initial Guesses.\n");
         goto up;
     }
 
     do {
-        x2 = (x0 + x1) / 2;
-        f2 = functionRun(x2);
+        x0 = (x1 + x2) / 2;
+        f0 = functionRun(x0);
 
-        if (f0 * f2 < 0) {
-            x1 = x2;
-            f1 = f2;
+        if (f1 * f0 < 0) {
+            x2 = x0;
+            f2 = f0;
         } else {
-            x0 = x2;
-            f0 = f2;
+            x1 = x0;
+            f1 = f0;
         }
         step = step + 1;
-    } while (fabs(f2) > e);
+    } while (fabs(f0) > e);
 
-    printf("\nRoot is: %f\n", x2);
+    printf("\nRoot is: %f\n", x0);
 
     return 0;
 }
